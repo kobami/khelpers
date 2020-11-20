@@ -20,9 +20,15 @@ class KhelpersServiceProvider extends ServiceProvider
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
         if ($this->app->runningInConsole()) {
-            $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('khelpers.php'),
-            ], 'config');
+            $this->publishes(
+                [
+                    __DIR__ . '/../config/config.php' => config_path('khelpers.php'),
+                    __DIR__ . '/../config/wp-config-example.php' => base_path('wp-config-example.php'),
+                    __DIR__ . '/../config/env-example' => base_path('env-example'),
+                    __DIR__ . '/../config/wp-sqlite-db.php' => base_path('public/wp-content/db.php'),
+                ],
+                'config'
+            );
 
             // Publishing the views.
             /*$this->publishes([
@@ -40,11 +46,15 @@ class KhelpersServiceProvider extends ServiceProvider
             ], 'lang');*/
 
             // Registering package commands.
-            $this->commands([
-              Console\Commands\ImportDb::class,
-              Console\Commands\ResetPasswords::class,
-              Console\Commands\WPRenameSite::class,
-            ]);
+            $this->commands(
+                [
+                    Console\Commands\ImportDb::class,
+                    Console\Commands\ResetPasswords::class,
+                    Console\Commands\WPRenameSite::class,
+                    Console\Commands\Serve::class,
+                    Console\Commands\DownloadWordPress::class,
+                ]
+            );
         }
     }
 
@@ -54,11 +64,14 @@ class KhelpersServiceProvider extends ServiceProvider
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'khelpers');
+        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'khelpers');
 
         // Register the main class to use with the facade
-        $this->app->singleton('khelpers', function () {
-            return new Khelpers;
-        });
+        $this->app->singleton(
+            'khelpers',
+            function () {
+                return new Khelpers;
+            }
+        );
     }
 }
