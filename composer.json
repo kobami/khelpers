@@ -1,0 +1,54 @@
+{
+  "name": "kobami/khelpers",
+  "description": "Laravel & WordPress helpers",
+  "version": "1.0.1",
+  "keywords": [
+    "kobami",
+    "khelpers"
+  ],
+  "homepage": "https://github.com/kobami/khelpers",
+  "license": "MIT",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Kobami",
+      "email": "test@kobami.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^7.1",
+    "illuminate/support": "^5.0|^6.0|^7.0|^8.0"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^4.0",
+    "phpunit/phpunit": "^8.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Kobami\\Khelpers\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Kobami\\Khelpers\\Tests\\": "tests"
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit",
+    "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Kobami\\Khelpers\\KhelpersServiceProvider"
+      ],
+      "aliases": {
+        "Khelpers": "Kobami\\Khelpers\\KhelpersFacade"
+      }
+    }
+  }
+}
