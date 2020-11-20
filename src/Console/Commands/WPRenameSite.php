@@ -81,7 +81,39 @@ class WPRenameSite extends Command
 
         $this->info('replace: "' . $searchFor . '" with: "' . $replaceWith . '"');
 
-        $cmd = 'cd public;wp search-replace ' . $searchFor . ' ' . $replaceWith . ' --recurse-objects --skip-columns=guid --skip-tables=blm_users';
+        // for SQLite
+        if (env('DB_CONNECTION') === 'sqlite') {
+            $this->renameInSQLiteDb($searchFor, $replaceWith);
+        } else {
+            $this->renameInMySQLDb($searchFor, $replaceWith);
+        }
+    }
+
+    private function renameInSQLiteDb($searchFor, $replaceWith)
+    {
+        $db = env('DB_DATABASE');
+
+        $this->line('Dumping SQLite db: ' . $db);
+        shell_exec("sqlite3 $db .dump > site.sql");
+
+        $this->line('Replacing...');
+        shell_exec("sed -i 's?$searchFor?$replaceWith?' site.sql");
+
+        $this->line('Importing...');
+        shell_exec("rm $db && cat site.sql | sqlite3 $db");
+
+        $this->info('Done!');
+    }
+
+    private function renameInMySQLDb($searchFor, $replaceWith)
+    {
+        // for MySQL
+        $tablePrefix = env('WP_TABLE_PREFIX', 'wp_');
+        $options = ' --recurse-objects --skip-columns=guid --skip-tables=' . $tablePrefix . 'users';
+        $cmd = "cd public;../vendor/bin/wp search-replace '$searchFor' '$replaceWith' $options";
+
+        $this->line('cmd:');
+        $this->line($cmd);
 
         // first we'll do a dry run to review
         echo shell_exec($cmd . ' --dry-run');
