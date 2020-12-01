@@ -11,6 +11,16 @@ This is where your description should go. Try and limit it to a paragraph or two
 
 You can install the package via composer:
 
+add `kobami/khelpers` to `composer.json` 
+```json
+"repositories": [
+    {
+        "type": "vcs",
+        "url": "https://github.com/kobami/khelpers.git"
+    }
+],
+```
+
 ```bash
 composer require kobami/khelpers
 ```
