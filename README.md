@@ -13,12 +13,12 @@ You can install the package via composer:
 
 add `kobami/khelpers` to `composer.json` 
 ```json
-"repositories": [
-    {
-        "type": "vcs",
-        "url": "https://github.com/kobami/khelpers.git"
-    }
-],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/kobami/khelpers.git"
+        }
+    ],
 ```
 
 ```bash
