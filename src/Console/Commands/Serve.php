@@ -12,14 +12,14 @@ class Serve extends Command
      *
      * @var string
      */
-    protected $signature = 'khelpers:serve';
+    protected $signature = 'k:serve';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Serve site at localhost:8000';
+    protected $description = 'khelpers - Serve site at localhost:8000';
 
     /**
      * Create a new command instance.

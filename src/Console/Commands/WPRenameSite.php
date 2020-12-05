@@ -41,14 +41,14 @@ class WPRenameSite extends Command
      *
      * @var string
      */
-    protected $signature = 'khelpers:wp-rename-site';
+    protected $signature = 'k:wp-rename-site';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'WordPress - rename site in DB. Requires wp-cli.';
+    protected $description = 'khelpers - WordPress - rename site in DB. Requires wp-cli.';
 
     /**
      * Create a new command instance.

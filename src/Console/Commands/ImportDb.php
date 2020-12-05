@@ -12,14 +12,14 @@ class ImportDb extends Command
      *
      * @var string
      */
-    protected $signature = 'khelpers:import-db';
+    protected $signature = 'k:import-db';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Import db from parent site. Use config/khelpers.php';
+    protected $description = 'khelpers - Import db from parent site. Use config/khelpers.php';
 
     /**
      * Create a new command instance.

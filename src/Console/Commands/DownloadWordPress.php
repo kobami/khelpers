@@ -12,14 +12,14 @@ class DownloadWordPress extends Command
      *
      * @var string
      */
-    protected $signature = 'khelpers:download-wordpress';
+    protected $signature = 'k:download-wordpress';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Download WordPress to /public. NOTE: existing Laravel files will be removed first.';
+    protected $description = 'khelpers - Download WordPress to /public. NOTE: existing Laravel files will be removed first.';
 
     /**
      * Create a new command instance.

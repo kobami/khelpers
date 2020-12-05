@@ -12,14 +12,14 @@ class ResetPasswords extends Command
      *
      * @var string
      */
-    protected $signature = 'khelpers:reset-passwords';
+    protected $signature = 'k:reset-passwords';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Reset all user passwords';
+    protected $description = 'khelpers - Reset all user passwords';
 
     /**
      * Create a new command instance.
