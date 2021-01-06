@@ -22,7 +22,7 @@ add `kobami/khelpers` to `composer.json`
 ```
 
 ```bash
-composer require kobami/khelpers
+composer require kobami/khelpers:dev-main
 ```
 
 ## Usage
