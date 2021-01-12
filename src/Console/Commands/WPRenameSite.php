@@ -109,7 +109,10 @@ class WPRenameSite extends Command
     {
         // for MySQL
         $tablePrefix = env('WP_TABLE_PREFIX', 'wp_');
-        $options = ' --recurse-objects --skip-columns=guid --skip-tables=' . $tablePrefix . 'users';
+        // removed skipping guid col because it's fine to update it...it's only used for RSS feeds
+        // and we don't want to leave dev urls as the guids.
+        //$options = ' --recurse-objects --skip-columns=guid --skip-tables=' . $tablePrefix . 'users';
+        $options = ' --recurse-objects --skip-tables=' . $tablePrefix . 'users';
         $cmd = "cd public;../vendor/bin/wp search-replace '$searchFor' '$replaceWith' $options";
 
         $this->line('cmd:');
