@@ -1,7 +1,7 @@
 {
   "name": "kobami/khelpers",
   "description": "Laravel & WordPress helpers",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "keywords": [
     "kobami",
     "khelpers"
@@ -17,7 +17,7 @@
     }
   ],
   "require": {
-    "php": "^8.1",
+    "php": "^7.0|^8.0",
     "illuminate/support": "^5.0|^6.0|^7.0|^8.0"
   },
   "require-dev": {
